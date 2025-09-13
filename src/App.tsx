@@ -15,6 +15,7 @@ import Profile from "./pages/Profile";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import ScrollToTop from "@/components/ScrollToTop";
 
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      
         <AuthProvider>
           <Routes>
             <Route path="/auth" element={<Auth />} />
