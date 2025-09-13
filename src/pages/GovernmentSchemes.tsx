@@ -14,7 +14,9 @@ const GovernmentSchemes = () => {
       deadline: "March 2026",
       description: "Solar pumps and grid-connected solar power plants for farmers",
       eligibility: "Farmers, cooperatives, and FPOs",
-      status: "Active"
+      status: "Active",
+      applyLink: "https://pmkusum.mnre.gov.in/",
+      detailsLink: "/schemes/pm-kusum" // Internal route for more details
     },
     {
       id: 2,
@@ -24,7 +26,9 @@ const GovernmentSchemes = () => {
       deadline: "December 2024",
       description: "Incentivize voluntary environmental actions by companies",
       eligibility: "All private entities and MSMEs",
-      status: "Active"
+      status: "Active",
+      applyLink: "https://www.moefcc-gcp.in/about/aboutGCP",
+      detailsLink: "/schemes/green-credit"
     },
     {
       id: 3,
@@ -34,7 +38,9 @@ const GovernmentSchemes = () => {
       deadline: "Ongoing",
       description: "Technology upgradation and energy efficiency for MSMEs",
       eligibility: "Registered MSMEs",
-      status: "Active"
+      status: "Active",
+      applyLink: "https://msme.gov.in/technology-upgradation-and-quality-certification",
+      detailsLink: "/schemes/msme-technology"
     },
     {
       id: 4,
@@ -44,9 +50,20 @@ const GovernmentSchemes = () => {
       deadline: "March 2025",
       description: "Subsidy for rooftop solar installations",
       eligibility: "Residential and commercial buildings",
-      status: "Active"
+      status: "Active",
+      applyLink: "https://pmsuryaghar.gov.in/#/",
+      detailsLink: "/schemes/solar-rooftop"
     }
   ];
+
+  // Function to handle external navigation with safety
+  const handleExternalNavigation = (url) => {
+    // Optional: Add confirmation dialog
+    const confirmed = window.confirm("You are being redirected to an external website. Continue?");
+    if (confirmed) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -114,13 +131,18 @@ const GovernmentSchemes = () => {
                 </div>
                 
                 <div className="flex gap-3">
-                  <Button size="sm">
+                  <Button 
+                    size="sm"
+                    onClick={() => handleExternalNavigation(scheme.applyLink)}
+                  >
                     Apply Now
                   </Button>
-                  <Button variant="outline" size="sm">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    View Details
-                  </Button>
+                  <Link to={scheme.detailsLink}>
+                    <Button variant="outline" size="sm">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      View Details
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
