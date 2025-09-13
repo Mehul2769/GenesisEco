@@ -13,6 +13,7 @@ import EcoMarketplace from "./pages/EcoMarketplace";
 import InventoryManagement from "./pages/InventoryManagement";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import ScrollToTop from "@/components/ScrollToTop";
 
 
@@ -24,7 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-      
+        <ScrollToTop />
         <AuthProvider>
           <Routes>
             <Route path="/auth" element={<Auth />} />
@@ -61,7 +62,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <ScrollToTop />
+          <ScrollToTopButton />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  Thermometer, 
-  Battery, 
-  Factory, 
-  Zap, 
-  MapPin, 
+import {
+  Thermometer,
+  Battery,
+  Factory,
+  Zap,
+  MapPin,
   TrendingUp,
   Leaf,
   Users,
@@ -40,21 +40,17 @@ const Dashboard = () => {
             <h1 className="text-xl font-bold text-eco-primary">EcoGenesis</h1>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <User className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-medium">
-                {loading ? (
-                  <Skeleton className="h-4 w-24" />
-                ) : (
-                  profile?.display_name || 'User'
-                )}
-              </span>
-            </div>
             <Link to="/profile">
-              <Button variant="ghost" size="sm">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <User className="h-4 w-4" />
                 Profile
               </Button>
             </Link>
+
             <Button
               variant="outline"
               size="sm"
@@ -70,9 +66,9 @@ const Dashboard = () => {
 
       {/* Hero Section */}
       <div className="relative h-96 overflow-hidden">
-        <img 
-          src={heroImage} 
-          alt="EcoGenesis IoT Network" 
+        <img
+          src={heroImage}
+          alt="EcoGenesis IoT Network"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 backdrop-blur-sm" />
@@ -190,12 +186,12 @@ const Dashboard = () => {
                 ].map((unit) => (
                   <div key={unit.id} className="flex items-center justify-between p-4 border rounded-lg">
                     <div className="flex items-center gap-4">
-                      <Badge 
+                      <Badge
                         variant={unit.status === "optimal" ? "default" : unit.status === "good" ? "secondary" : "destructive"}
                         className={
                           unit.status === "optimal" ? "bg-eco-success text-white" :
-                          unit.status === "good" ? "bg-eco-warning text-white" :
-                          "bg-destructive text-white"
+                            unit.status === "good" ? "bg-eco-warning text-white" :
+                              "bg-destructive text-white"
                         }
                       >
                         {unit.status}
@@ -237,7 +233,7 @@ const Dashboard = () => {
                 <p className="text-sm text-cyan-800 opacity-90">2:30 PM - 3:30 PM</p>
                 <p className="text-lg text-cyan-800 font-bold">412 kWh generated</p>
               </div>
-              
+
               <div className="p-4 bg-eco-earth/10 rounded-lg">
                 <h3 className="font-semibold mb-2 text-eco-earth-dark">Best Performing Unit</h3>
                 <p className="text-sm text-muted-foreground">EG-002, Palam</p>
@@ -324,7 +320,7 @@ const Dashboard = () => {
           </Link>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

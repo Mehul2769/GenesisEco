@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Leaf, Github } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import bgImage from '@/assets/hero-dashboard.jpg';
+
 
 const Auth = () => {
   const [email, setEmail] = useState('');
@@ -84,14 +86,15 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-green-500 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center p-4 relative bg-cover bg-center" style={{ backgroundImage: `url(${bgImage})`}}>
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      <div className="relative w-full max-w-md">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Leaf className="h-8 w-8 text-yellow-200" />
-            <h1 className="text-4xl text-yellow-200 font-bold text-white">EcoGenesis</h1>
+            <Leaf className="h-8 w-8 text-green-300" />
+            <h1 className="text-4xl text-green-200 font-bold text-white">EcoGenesis</h1>
           </div>
-          <p className="font-bold text-yellow-200">Sustainable IoT for a greener future</p>
+          <p className="font-bold text-green-400">Sustainable IoT for a greener future</p>
         </div>
 
         <Card className="backdrop-blur-sm bg-white/95 shadow-eco">
